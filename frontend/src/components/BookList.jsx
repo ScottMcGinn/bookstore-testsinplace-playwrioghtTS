@@ -5,9 +5,9 @@ function BookList({ books, onBookClick }) {
   const { addToCart } = useCart();
   if (books.length === 0) {
     return (
-      <div className="no-books">
-        <p>No books found</p>
-        <p className="hint">Try adjusting your search filters</p>
+      <div className="no-books" aria-label="No books available">
+        <p aria-label="No books message">No books found</p>
+        <p className="hint" aria-label="Search hint">Try adjusting your search filters</p>
       </div>
     );
   }
@@ -29,28 +29,28 @@ function BookList({ books, onBookClick }) {
             }
           }}
         >
-          <div className="book-card-image">
+          <div className="book-card-image" aria-label="Book cover image">
             {book.coverImage ? (
-              <img src={book.coverImage} alt={`Cover of ${book.title}`} />
+              <img src={book.coverImage} alt={`Cover of ${book.title}`} aria-label={`${book.title} cover image`} />
             ) : (
               <div className="book-placeholder" aria-label="No cover image available">📖</div>
             )}
           </div>
           
-          <div className="book-card-content">
-            <h3 className="book-title">{book.title}</h3>
-            <p className="book-author">by {book.author}</p>
+          <div className="book-card-content" aria-label="Book information">
+            <h3 className="book-title" aria-label="Book title">{book.title}</h3>
+            <p className="book-author" aria-label="Book author">by {book.author}</p>
             
-            <div className="book-meta">
-              <span className="book-category">{book.category}</span>
+            <div className="book-meta" aria-label="Book metadata">
+              <span className="book-category" aria-label="Book category">{book.category}</span>
               {book.publicationYear && (
-                <span className="book-year">{book.publicationYear}</span>
+                <span className="book-year" aria-label="Publication year">{book.publicationYear}</span>
               )}
             </div>
             
-            <div className="book-footer">
-              <span className="book-price">${book.price.toFixed(2)}</span>
-              <span className={`book-stock ${book.stock > 0 ? 'in-stock' : 'out-of-stock'}`} aria-live="polite">
+            <div className="book-footer" aria-label="Book pricing and availability">
+              <span className="book-price" aria-label="Book price">${book.price.toFixed(2)}</span>
+              <span className={`book-stock ${book.stock > 0 ? 'in-stock' : 'out-of-stock'}`} aria-live="polite" aria-label="Stock availability">
                 {book.stock > 0 ? `${book.stock} in stock` : 'Out of stock'}
               </span>
             </div>

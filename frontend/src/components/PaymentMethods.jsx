@@ -82,17 +82,17 @@ function PaymentMethods({ userId }) {
 
   if (loading) {
     return (
-      <div className="loading">
-        <div className="spinner"></div>
-        <p>Loading payment methods...</p>
+      <div className="loading" aria-label="Loading payment methods">
+        <div className="spinner" aria-label="Loading spinner"></div>
+        <p aria-label="Loading message">Loading payment methods...</p>
       </div>
     );
   }
 
   return (
-    <div className="payment-methods">
-      <div className="payment-header">
-        <h3>Saved Payment Methods</h3>
+    <div className="payment-methods" aria-label="Payment methods section">
+      <div className="payment-header" aria-label="Payment methods header">
+        <h3 aria-label="Saved payment methods heading">Saved Payment Methods</h3>
         <button
           className="btn-add-payment"
           onClick={() => setShowForm(!showForm)}
@@ -102,14 +102,14 @@ function PaymentMethods({ userId }) {
         </button>
       </div>
 
-      {error && <div className="error-message" role="alert">{error}</div>}
-      {successMessage && <div className="success-message" role="alert">{successMessage}</div>}
+      {error && <div className="error-message" role="alert" aria-label="Error message">{error}</div>}
+      {successMessage && <div className="success-message" role="alert" aria-label="Success message">{successMessage}</div>}
 
       {showForm && (
         <form onSubmit={handleAddPaymentMethod} className="payment-form" aria-label="Add payment method form">
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="type">Payment Type *</label>
+          <div className="form-row" aria-label="Payment type and brand fields">
+            <div className="form-group" aria-label="Payment type field group">
+              <label htmlFor="type" aria-label="Payment type label">Payment Type *</label>
               <select
                 id="type"
                 name="type"
@@ -121,8 +121,8 @@ function PaymentMethods({ userId }) {
                 <option value="debit_card">Debit Card</option>
               </select>
             </div>
-            <div className="form-group">
-              <label htmlFor="brand">Card Brand *</label>
+            <div className="form-group" aria-label="Card brand field group">
+              <label htmlFor="brand" aria-label="Card brand label">Card Brand *</label>
               <select
                 id="brand"
                 name="brand"
@@ -138,9 +138,9 @@ function PaymentMethods({ userId }) {
             </div>
           </div>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="lastFour">Last 4 Digits *</label>
+          <div className="form-row" aria-label="Card number and expiry fields">
+            <div className="form-group" aria-label="Last four digits field group">
+              <label htmlFor="lastFour" aria-label="Last four digits label">Last 4 Digits *</label>
               <input
                 id="lastFour"
                 type="text"
@@ -153,8 +153,8 @@ function PaymentMethods({ userId }) {
                 aria-label="Last 4 digits of card"
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="expiryMonth">Expiry Month *</label>
+            <div className="form-group" aria-label="Expiry month field group">
+              <label htmlFor="expiryMonth" aria-label="Expiry month label">Expiry Month *</label>
               <select
                 id="expiryMonth"
                 name="expiryMonth"
@@ -171,8 +171,8 @@ function PaymentMethods({ userId }) {
                 ))}
               </select>
             </div>
-            <div className="form-group">
-              <label htmlFor="expiryYear">Expiry Year *</label>
+            <div className="form-group" aria-label="Expiry year field group">
+              <label htmlFor="expiryYear" aria-label="Expiry year label">Expiry Year *</label>
               <select
                 id="expiryYear"
                 name="expiryYear"
@@ -194,7 +194,7 @@ function PaymentMethods({ userId }) {
             </div>
           </div>
 
-          <div className="form-group checkbox">
+          <div className="form-group checkbox" aria-label="Default payment method checkbox">
             <input
               id="isDefault"
               type="checkbox"
@@ -203,7 +203,7 @@ function PaymentMethods({ userId }) {
               onChange={handleInputChange}
               aria-label="Set as default payment method"
             />
-            <label htmlFor="isDefault">Set as default payment method</label>
+            <label htmlFor="isDefault" aria-label="Default payment method label">Set as default payment method</label>
           </div>
 
           <button type="submit" className="btn-submit" aria-label="Save payment method">

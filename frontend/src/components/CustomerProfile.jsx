@@ -115,27 +115,27 @@ function CustomerProfile() {
 
   if (loading) {
     return (
-      <div className="customer-profile">
-        <div className="loading">
-          <div className="spinner"></div>
-          <p>Loading profile...</p>
+      <div className="customer-profile" aria-label="Loading customer profile">
+        <div className="loading" aria-label="Loading indicator">
+          <div className="spinner" aria-label="Loading spinner"></div>
+          <p aria-label="Loading message">Loading profile...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="customer-profile">
-      <div className="profile-header">
-        <h1>👤 My Profile</h1>
-        <p className="profile-subtitle">Manage your account information and preferences</p>
+    <div className="customer-profile" aria-label="Customer profile page">
+      <div className="profile-header" aria-label="Profile page header">
+        <h1 aria-label="Profile page title">👤 My Profile</h1>
+        <p className="profile-subtitle" aria-label="Profile page subtitle">Manage your account information and preferences</p>
       </div>
 
-      {error && <div className="error-message" role="alert">{error}</div>}
-      {successMessage && <div className="success-message" role="alert">{successMessage}</div>}
+      {error && <div className="error-message" role="alert" aria-label="Error message">{error}</div>}
+      {successMessage && <div className="success-message" role="alert" aria-label="Success message">{successMessage}</div>}
 
-      <div className="profile-container">
-        <div className="profile-tabs">
+      <div className="profile-container" aria-label="Profile content container">
+        <div className="profile-tabs" aria-label="Profile navigation tabs">
           <button
             className={`tab-button ${activeTab === 'profile' ? 'active' : ''}`}
             onClick={() => setActiveTab('profile')}
@@ -162,11 +162,11 @@ function CustomerProfile() {
           </button>
         </div>
 
-        <div className="profile-content">
+        <div className="profile-content" aria-label="Profile tab content">
           {activeTab === 'profile' && (
-            <div className="profile-section">
-              <div className="section-header">
-                <h2>Personal Information</h2>
+            <div className="profile-section" aria-label="Profile information section">
+              <div className="section-header" aria-label="Section header">
+                <h2 aria-label="Personal information heading">Personal Information</h2>
                 {!isEditing && (
                   <button
                     className="btn-edit"
@@ -180,9 +180,9 @@ function CustomerProfile() {
 
               {isEditing ? (
                 <form onSubmit={handleSaveProfile} className="profile-form" aria-label="Edit profile form">
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="firstName">First Name *</label>
+                  <div className="form-row" aria-label="Name fields">
+                    <div className="form-group" aria-label="First name field group">
+                      <label htmlFor="firstName" aria-label="First name label">First Name *</label>
                       <input
                         id="firstName"
                         type="text"
@@ -193,8 +193,8 @@ function CustomerProfile() {
                         aria-label="First name"
                       />
                     </div>
-                    <div className="form-group">
-                      <label htmlFor="lastName">Last Name *</label>
+                    <div className="form-group" aria-label="Last name field group">
+                      <label htmlFor="lastName" aria-label="Last name label">Last Name *</label>
                       <input
                         id="lastName"
                         type="text"
@@ -207,9 +207,9 @@ function CustomerProfile() {
                     </div>
                   </div>
 
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="email">Email *</label>
+                  <div className="form-row" aria-label="Email and phone fields">
+                    <div className="form-group" aria-label="Email field group">
+                      <label htmlFor="email" aria-label="Email label">Email *</label>
                       <input
                         id="email"
                         type="email"
@@ -220,8 +220,8 @@ function CustomerProfile() {
                         aria-label="Email address"
                       />
                     </div>
-                    <div className="form-group">
-                      <label htmlFor="phone">Phone</label>
+                    <div className="form-group" aria-label="Phone field group">
+                      <label htmlFor="phone" aria-label="Phone label">Phone</label>
                       <input
                         id="phone"
                         type="tel"
@@ -234,9 +234,9 @@ function CustomerProfile() {
                     </div>
                   </div>
 
-                  <h3>Address</h3>
-                  <div className="form-group">
-                    <label htmlFor="street">Street Address</label>
+                  <h3 aria-label="Address section heading">Address</h3>
+                  <div className="form-group" aria-label="Street address field group">
+                    <label htmlFor="street" aria-label="Street address label">Street Address</label>
                     <input
                       id="street"
                       type="text"
@@ -247,9 +247,9 @@ function CustomerProfile() {
                     />
                   </div>
 
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="city">City</label>
+                  <div className="form-row" aria-label="City and state fields">
+                    <div className="form-group" aria-label="City field group">
+                      <label htmlFor="city" aria-label="City label">City</label>
                       <input
                         id="city"
                         type="text"
@@ -259,8 +259,8 @@ function CustomerProfile() {
                         aria-label="City"
                       />
                     </div>
-                    <div className="form-group">
-                      <label htmlFor="state">State</label>
+                    <div className="form-group" aria-label="State field group">
+                      <label htmlFor="state" aria-label="State label">State</label>
                       <input
                         id="state"
                         type="text"
@@ -272,9 +272,9 @@ function CustomerProfile() {
                     </div>
                   </div>
 
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="zipCode">ZIP Code</label>
+                  <div className="form-row" aria-label="ZIP code and country fields">
+                    <div className="form-group" aria-label="ZIP code field group">
+                      <label htmlFor="zipCode" aria-label="ZIP code label">ZIP Code</label>
                       <input
                         id="zipCode"
                         type="text"
@@ -284,8 +284,8 @@ function CustomerProfile() {
                         aria-label="ZIP or postal code"
                       />
                     </div>
-                    <div className="form-group">
-                      <label htmlFor="country">Country</label>
+                    <div className="form-group" aria-label="Country field group">
+                      <label htmlFor="country" aria-label="Country label">Country</label>
                       <input
                         id="country"
                         type="text"
@@ -297,7 +297,7 @@ function CustomerProfile() {
                     </div>
                   </div>
 
-                  <div className="form-actions">
+                  <div className="form-actions" aria-label="Form action buttons">
                     <button type="submit" className="btn-save" aria-label="Save profile changes">
                       Save Changes
                     </button>
@@ -312,24 +312,24 @@ function CustomerProfile() {
                   </div>
                 </form>
               ) : (
-                <div className="profile-display">
-                  <div className="info-row">
-                    <span className="label">Name:</span>
-                    <span className="value">{profile?.firstName} {profile?.lastName}</span>
+                <div className="profile-display" aria-label="Profile information">
+                  <div className="info-row" aria-label="Name information">
+                    <span className="label" aria-label="Name label">Name:</span>
+                    <span className="value" aria-label="User full name">{profile?.firstName} {profile?.lastName}</span>
                   </div>
-                  <div className="info-row">
-                    <span className="label">Email:</span>
-                    <span className="value">{profile?.email}</span>
+                  <div className="info-row" aria-label="Email information">
+                    <span className="label" aria-label="Email label">Email:</span>
+                    <span className="value" aria-label="User email address">{profile?.email}</span>
                   </div>
-                  <div className="info-row">
-                    <span className="label">Phone:</span>
-                    <span className="value">{profile?.phone || 'Not provided'}</span>
+                  <div className="info-row" aria-label="Phone information">
+                    <span className="label" aria-label="Phone label">Phone:</span>
+                    <span className="value" aria-label="User phone number">{profile?.phone || 'Not provided'}</span>
                   </div>
                   {profile?.address && (
                     <>
-                      <div className="info-row">
-                        <span className="label">Address:</span>
-                        <span className="value">
+                      <div className="info-row" aria-label="Address information">
+                        <span className="label" aria-label="Address label">Address:</span>
+                        <span className="value" aria-label="User address">
                           {profile.address.street && <>{profile.address.street}</>}
                           {profile.address.city && <>, {profile.address.city}</>}
                           {profile.address.state && <> {profile.address.state}</>}

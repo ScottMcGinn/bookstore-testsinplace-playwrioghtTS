@@ -24,8 +24,8 @@
       "role": "customer",
       "fullName": "John Customer",
       "profile": {
-        "firstName": "UpdatedFirstName",
-        "lastName": "UpdatedLastName",
+        "firstName": "Customer",
+        "lastName": "Bookstore",
         "email": "customer@bookstore.com",
         "phone": "555-1234",
         "address": {
@@ -44,46 +44,6 @@
             "expiryMonth": 12,
             "expiryYear": 2025,
             "isDefault": false
-          },
-          {
-            "id": "pm_1768866929888",
-            "type": "credit_card",
-            "lastFour": "4242",
-            "brand": "Visa",
-            "expiryMonth": "12",
-            "expiryYear": "2025",
-            "isDefault": false,
-            "createdAt": "2026-01-19T23:55:29.888Z"
-          },
-          {
-            "id": "pm_1768866929902",
-            "type": "credit_card",
-            "lastFour": "5555",
-            "brand": "Mastercard",
-            "expiryMonth": "06",
-            "expiryYear": "2026",
-            "isDefault": false,
-            "createdAt": "2026-01-19T23:55:29.902Z"
-          },
-          {
-            "id": "pm_1768867227379",
-            "type": "credit_card",
-            "lastFour": "4242",
-            "brand": "Visa",
-            "expiryMonth": "12",
-            "expiryYear": "2025",
-            "isDefault": false,
-            "createdAt": "2026-01-20T00:00:27.379Z"
-          },
-          {
-            "id": "pm_1768867227386",
-            "type": "credit_card",
-            "lastFour": "5555",
-            "brand": "Mastercard",
-            "expiryMonth": "06",
-            "expiryYear": "2026",
-            "isDefault": true,
-            "createdAt": "2026-01-20T00:00:27.386Z"
           }
         ],
         "orderHistory": [
@@ -207,9 +167,137 @@
               "zipCode": "10001",
               "country": "United States"
             }
+          },
+          {
+            "orderId": "ORD-1768913246754",
+            "orderDate": "2026-01-20T12:47:26.754Z",
+            "total": 31.98,
+            "items": [
+              {
+                "bookId": 1,
+                "title": "Test Book",
+                "quantity": 2,
+                "price": 15.99
+              }
+            ],
+            "status": "pending",
+            "shippingAddress": {
+              "street": "123 Main St",
+              "city": "New York",
+              "state": "NY",
+              "zipCode": "10001",
+              "country": "United States"
+            }
+          },
+          {
+            "orderId": "ORD-1768913246840",
+            "orderDate": "2026-01-20T12:47:26.840Z",
+            "total": 12.99,
+            "items": [
+              {
+                "bookId": 2,
+                "title": "Another Book",
+                "quantity": 1,
+                "price": 12.99
+              }
+            ],
+            "status": "pending"
+          },
+          {
+            "orderId": "ORD-1768913302418",
+            "orderDate": "2026-01-20T12:48:22.418Z",
+            "total": 31.98,
+            "items": [
+              {
+                "bookId": 1,
+                "title": "Test Book",
+                "quantity": 2,
+                "price": 15.99
+              }
+            ],
+            "status": "pending",
+            "shippingAddress": {
+              "street": "123 Main St",
+              "city": "New York",
+              "state": "NY",
+              "zipCode": "10001",
+              "country": "United States"
+            }
+          },
+          {
+            "orderId": "ORD-1768913302524",
+            "orderDate": "2026-01-20T12:48:22.524Z",
+            "total": 12.99,
+            "items": [
+              {
+                "bookId": 2,
+                "title": "Another Book",
+                "quantity": 1,
+                "price": 12.99
+              }
+            ],
+            "status": "pending"
+          },
+          {
+            "orderId": "ORD-1768913445251",
+            "orderDate": "2026-01-20T12:50:45.251Z",
+            "total": 31.98,
+            "items": [
+              {
+                "bookId": 1,
+                "title": "Test Book",
+                "quantity": 2,
+                "price": 15.99
+              }
+            ],
+            "status": "pending",
+            "shippingAddress": {
+              "street": "123 Main St",
+              "city": "New York",
+              "state": "NY",
+              "zipCode": "10001",
+              "country": "United States"
+            }
+          },
+          {
+            "orderId": "ORD-1768913445289",
+            "orderDate": "2026-01-20T12:50:45.289Z",
+            "total": 12.99,
+            "items": [
+              {
+                "bookId": 2,
+                "title": "Another Book",
+                "quantity": 1,
+                "price": 12.99
+              }
+            ],
+            "status": "pending"
           }
         ]
       }
+    },
+    {
+      "id": "user_1768913445144_os368ah2u",
+      "username": "loginCustomer",
+      "password": "cust1234",
+      "email": "loginCustomer@example.com",
+      "fullName": "New Customer",
+      "firstName": "New",
+      "lastName": "Customer",
+      "role": "customer",
+      "profile": {
+        "avatar": null,
+        "bio": "",
+        "phone": "",
+        "address": "",
+        "city": "",
+        "state": "",
+        "zipCode": "",
+        "country": ""
+      },
+      "orders": [],
+      "paymentMethods": [],
+      "createdAt": "2026-01-20T12:50:45.144Z"
     }
   ]
 }

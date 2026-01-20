@@ -52,17 +52,17 @@ function LoginPage() {
   }
 
   return (
-    <div className="login-page">
-      <div className="login-container">
-        <div className="login-card">
-          <div className="login-header">
-            <h1>📚 Bookstore</h1>
-            <p className="login-subtitle">Test Automation Practice App</p>
+    <div className="login-page" aria-label="Login page">
+      <div className="login-container" aria-label="Login container">
+        <div className="login-card" aria-label="Login card">
+          <div className="login-header" aria-label="Login header">
+            <h1 aria-label="Bookstore title">📚 Bookstore</h1>
+            <p className="login-subtitle" aria-label="App subtitle">Test Automation Practice App</p>
           </div>
 
           <form onSubmit={handleSubmit} className="login-form" aria-label="User login form">
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
+            <div className="form-group" aria-label="Username field group">
+              <label htmlFor="username" aria-label="Username label">Username</label>
               <input
                 id="username"
                 type="text"
@@ -76,8 +76,8 @@ function LoginPage() {
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
+            <div className="form-group" aria-label="Password field group">
+              <label htmlFor="password" aria-label="Password label">Password</label>
               <input
                 id="password"
                 type="password"
@@ -92,7 +92,7 @@ function LoginPage() {
             </div>
 
             {(localError || error) && (
-              <div className="error-message" role="alert">
+              <div className="error-message" role="alert" aria-label="Login error message">
                 {localError || error}
               </div>
             )}
@@ -102,13 +102,14 @@ function LoginPage() {
               className="btn-login"
               disabled={loading}
               aria-label="Click to login"
+              aria-disabled={loading}
             >
               {loading ? 'Logging in...' : 'Login'}
             </button>
           </form>
 
-          <div className="login-footer">
-            <p className="register-prompt">
+          <div className="login-footer" aria-label="Login footer">
+            <p className="register-prompt" aria-label="Registration prompt">
               For testing a new Customer can be added by clicking
               <button 
                 type="button"
@@ -121,18 +122,18 @@ function LoginPage() {
             </p>
           </div>
 
-          <div className="demo-info">
-            <h3>Demo Accounts</h3>
-            <p className="demo-description">Use these credentials to test different user roles:</p>
-            <div className="demo-accounts">
+          <div className="demo-info" aria-label="Demo accounts information">
+            <h3 aria-label="Demo accounts heading">Demo Accounts</h3>
+            <p className="demo-description" aria-label="Demo accounts description">Use these credentials to test different user roles:</p>
+            <div className="demo-accounts" aria-label="List of demo accounts">
               {demoAccounts.map((account) => (
-                <div key={account.username} className="demo-account">
-                  <div className="demo-role">{account.role}</div>
-                  <div className="demo-credentials">
-                    <small><strong>Username:</strong> {account.username}</small>
-                    <small><strong>Password:</strong> {account.password}</small>
+                <div key={account.username} className="demo-account" aria-label={`${account.role} demo account`}>
+                  <div className="demo-role" aria-label="Account role">{account.role}</div>
+                  <div className="demo-credentials" aria-label="Account credentials">
+                    <small aria-label="Username"><strong>Username:</strong> {account.username}</small>
+                    <small aria-label="Password"><strong>Password:</strong> {account.password}</small>
                   </div>
-                  <div className="demo-description-small">{account.description}</div>
+                  <div className="demo-description-small" aria-label="Account description">{account.description}</div>
                 </div>
               ))}
             </div>

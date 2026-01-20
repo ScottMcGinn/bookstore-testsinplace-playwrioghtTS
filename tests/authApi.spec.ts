@@ -42,10 +42,10 @@ test.describe('AuthAPI tests @APITest', () => {
     });
 
     test('Login customer via API', async ({ page }) => {
-        const response = await authApi(page).registerCustomer('newCustomer', 'cust1234', 'newcustomer@example.com', 'New', 'Customer');     
+        const response = await authApi(page).registerCustomer('loginCustomer', 'cust1234', 'loginCustomer@example.com', 'New', 'Customer');     
       
         const custUser = authApi(page);
-        const loginResponse = await custUser.loginCustomer('newCustomer', 'cust1234');
+        const loginResponse = await custUser.loginCustomer('loginCustomer', 'cust1234');
         
         expect(loginResponse.status()).toBe(200);
         
@@ -53,8 +53,8 @@ test.describe('AuthAPI tests @APITest', () => {
         expect(responseBody.success).toBe(true);
         expect(responseBody.message).toContain('Welcome');
         expect(responseBody.user).toBeDefined();
-        expect(responseBody.user.username).toBe('newCustomer');
-        expect(responseBody.user.email).toBe('newcustomer@example.com');
+        expect(responseBody.user.username).toBe('loginCustomer');
+        expect(responseBody.user.email).toBe('loginCustomer@example.com');
         expect(responseBody.user.role).toBe('customer');
     });
 

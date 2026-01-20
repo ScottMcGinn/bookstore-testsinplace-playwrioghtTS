@@ -141,31 +141,5 @@
     "publisher": "Celadon Books",
     "stock": 20,
     "coverImage": "https://example.com/silent-patient.jpg"
-  },
-  {
-    "id": 12,
-    "title": "Test Book",
-    "author": "Test Author",
-    "isbn": "978-0-TEST-000-0",
-    "price": 19.99,
-    "category": "Fiction",
-    "description": "A test book description",
-    "publicationYear": 2024,
-    "publisher": "Test Publisher",
-    "stock": 10,
-    "coverImage": ""
-  },
-  {
-    "id": 13,
-    "title": "Updated Book Title",
-    "author": "Update Author",
-    "isbn": "978-0-UPD-000-0",
-    "price": 25.99,
-    "category": "Uncategorized",
-    "description": "",
-    "publicationYear": null,
-    "publisher": "",
-    "stock": 0,
-    "coverImage": ""
   }
 ]
