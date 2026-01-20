@@ -399,4 +399,118 @@ router.get('/me', (req, res) => {
   res.json({ message: 'Use login endpoint to authenticate' });
 });
 
+/**
+ * @swagger
+ * /api/auth/cleanup:
+ *   delete:
+ *     summary: Clean up test users
+ *     description: Remove all customer and staff users created during testing, preserving default users (admin, staff, customer)
+ *     tags: [Authentication]
+ *     responses:
+ *       200:
+ *         description: Users cleaned up successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *                 deletedCount:
+ *                   type: integer
+ *                   description: Number of users deleted
+ *       500:
+ *         description: Server error
+ */
+router.delete('/cleanup', (req, res) => {
+  const users = getUsers();
+  
+  // Default user IDs/usernames to preserve
+  const defaultUsers = ['admin', 'staff', 'customer'];
+  
+  // Filter to keep only default users
+  const filteredUsers = users.filter(user => 
+    defaultUsers.includes(user.username) || user.id <= 3
+  );
+  
+  const deletedCount = users.length - filteredUsers.length;
+  
+  if (saveUsers(filteredUsers)) {
+    res.json({
+      success: true,
+      message: `Successfully removed ${deletedCount} test user(s)`,
+      deletedCount: deletedCount
+    });
+  } else {
+    res.status(500).json({ error: 'Error cleaning up users. Please try again.' });
+  }
+});
+
+/**
+ * @swagger
+ * /api/auth/cleanup/user/{username}:
+ *   delete:
+ *     summary: Delete specific user
+ *     description: Remove a specific user by username (cannot delete default users)
+ *     tags: [Authentication]
+ *     parameters:
+ *       - in: path
+ *         name: username
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Username of the user to delete
+ *         example: newcustomer
+ *     responses:
+ *       200:
+ *         description: User deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *       400:
+ *         description: Cannot delete default users
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Server error
+ */
+router.delete('/cleanup/user/:username', (req, res) => {
+  const { username } = req.params;
+  
+  // Prevent deletion of default users
+  const defaultUsers = ['admin', 'staff', 'customer'];
+  if (defaultUsers.includes(username)) {
+    return res.status(400).json({ 
+      error: 'Cannot delete default users',
+      protectedUsers: defaultUsers 
+    });
+  }
+  
+  const users = getUsers();
+  const userIndex = users.findIndex(u => u.username === username);
+  
+  if (userIndex === -1) {
+    return res.status(404).json({ error: `User "${username}" not found` });
+  }
+  
+  users.splice(userIndex, 1);
+  
+  if (saveUsers(users)) {
+    res.json({
+      success: true,
+      message: `User "${username}" has been deleted successfully`
+    });
+  } else {
+    res.status(500).json({ error: 'Error deleting user. Please try again.' });
+  }
+});
+
 module.exports = router;

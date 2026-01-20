@@ -24,16 +24,16 @@
       "role": "customer",
       "fullName": "John Customer",
       "profile": {
-        "firstName": "John",
-        "lastName": "Customer",
+        "firstName": "UpdatedFirstName",
+        "lastName": "UpdatedLastName",
         "email": "customer@bookstore.com",
-        "phone": "(555) 123-4567",
+        "phone": "555-1234",
         "address": {
-          "street": "123 Main Street",
-          "city": "New York",
-          "state": "NY",
-          "zipCode": "10001",
-          "country": "United States"
+          "street": "456 Test Ave",
+          "city": "Test City",
+          "state": "TC",
+          "zipCode": "12345",
+          "country": "Test Country"
         },
         "paymentMethods": [
           {
@@ -43,7 +43,47 @@
             "brand": "Visa",
             "expiryMonth": 12,
             "expiryYear": 2025,
-            "isDefault": true
+            "isDefault": false
+          },
+          {
+            "id": "pm_1768866929888",
+            "type": "credit_card",
+            "lastFour": "4242",
+            "brand": "Visa",
+            "expiryMonth": "12",
+            "expiryYear": "2025",
+            "isDefault": false,
+            "createdAt": "2026-01-19T23:55:29.888Z"
+          },
+          {
+            "id": "pm_1768866929902",
+            "type": "credit_card",
+            "lastFour": "5555",
+            "brand": "Mastercard",
+            "expiryMonth": "06",
+            "expiryYear": "2026",
+            "isDefault": false,
+            "createdAt": "2026-01-19T23:55:29.902Z"
+          },
+          {
+            "id": "pm_1768867227379",
+            "type": "credit_card",
+            "lastFour": "4242",
+            "brand": "Visa",
+            "expiryMonth": "12",
+            "expiryYear": "2025",
+            "isDefault": false,
+            "createdAt": "2026-01-20T00:00:27.379Z"
+          },
+          {
+            "id": "pm_1768867227386",
+            "type": "credit_card",
+            "lastFour": "5555",
+            "brand": "Mastercard",
+            "expiryMonth": "06",
+            "expiryYear": "2026",
+            "isDefault": true,
+            "createdAt": "2026-01-20T00:00:27.386Z"
           }
         ],
         "orderHistory": [
@@ -97,55 +137,79 @@
               "zipCode": "02115",
               "country": "United States"
             }
+          },
+          {
+            "orderId": "ORD-1768866929778",
+            "orderDate": "2026-01-19T23:55:29.778Z",
+            "total": 31.98,
+            "items": [
+              {
+                "bookId": 1,
+                "title": "Test Book",
+                "quantity": 2,
+                "price": 15.99
+              }
+            ],
+            "status": "pending",
+            "shippingAddress": {
+              "street": "123 Main St",
+              "city": "New York",
+              "state": "NY",
+              "zipCode": "10001",
+              "country": "United States"
+            }
+          },
+          {
+            "orderId": "ORD-1768866929782",
+            "orderDate": "2026-01-19T23:55:29.782Z",
+            "total": 12.99,
+            "items": [
+              {
+                "bookId": 2,
+                "title": "Another Book",
+                "quantity": 1,
+                "price": 12.99
+              }
+            ],
+            "status": "pending"
+          },
+          {
+            "orderId": "ORD-1768867227150",
+            "orderDate": "2026-01-20T00:00:27.150Z",
+            "total": 12.99,
+            "items": [
+              {
+                "bookId": 2,
+                "title": "Another Book",
+                "quantity": 1,
+                "price": 12.99
+              }
+            ],
+            "status": "pending"
+          },
+          {
+            "orderId": "ORD-1768867227251",
+            "orderDate": "2026-01-20T00:00:27.251Z",
+            "total": 31.98,
+            "items": [
+              {
+                "bookId": 1,
+                "title": "Test Book",
+                "quantity": 2,
+                "price": 15.99
+              }
+            ],
+            "status": "pending",
+            "shippingAddress": {
+              "street": "123 Main St",
+              "city": "New York",
+              "state": "NY",
+              "zipCode": "10001",
+              "country": "United States"
+            }
           }
         ]
       }
-    },
-    {
-      "id": "user_1765458695196_dqarj1w8x",
-      "username": "emmaj2024",
-      "password": "password456",
-      "email": "emma.johnson@example.com",
-      "fullName": "Emma Johnson",
-      "firstName": "Emma",
-      "lastName": "Johnson",
-      "role": "customer",
-      "profile": {
-        "avatar": null,
-        "bio": "",
-        "phone": "",
-        "address": "",
-        "city": "",
-        "state": "",
-        "zipCode": "",
-        "country": ""
-      },
-      "orders": [],
-      "paymentMethods": [],
-      "createdAt": "2025-12-11T13:11:35.196Z"
-    },
-    {
-      "id": "user_1765459934705_yyclozyip",
-      "username": "alexm2024",
-      "password": "staffpass123",
-      "email": "alex.mitchell@bookstore.com",
-      "fullName": "Alex Mitchell",
-      "firstName": "Alex",
-      "lastName": "Mitchell",
-      "role": "staff",
-      "profile": {
-        "avatar": null,
-        "bio": "",
-        "phone": "",
-        "address": "",
-        "city": "",
-        "state": "",
-        "zipCode": "",
-        "country": ""
-      },
-      "orders": [],
-      "paymentMethods": [],
-      "createdAt": "2025-12-11T13:32:14.705Z"
     }
   ]
 }

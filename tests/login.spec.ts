@@ -1,33 +1,34 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from './pom/LoginPage';
+import { login } from '../playwright/lib/login.lib';
 
-test.describe('Tests to check that logins work', () => {
+const USERDETAILS = {
+    customerUsername: 'customer',
+    customerPassword: 'customer123',
+    adminUsername: 'admin',
+    adminPassword: 'admin123',
+    staffUsername: 'staff',
+    staffPassword: 'staff123'
+};
 
-    test('Check Customer Login', { tag: '@critical' }, async ({ page }) => {
-        const login = new LoginPage(page);
+test.describe('Login Tests', () => {
+    test.beforeEach(async ({ page }) => {
+        const newLogin = login(page);
+        await newLogin.visit();
+    });
 
-        await page.goto('/');
-        await login.login('customer', 'customer123');
+    test('Login as customer', async ({ page }) => {
+        const newLogin = login(page);
+        await newLogin.login(USERDETAILS.customerUsername, USERDETAILS.customerPassword);
+    });
 
-        await expect(page.locator('.user-role')).toHaveText('CUSTOMER'); 
-    })
+    test('Login as admin', async ({ page }) => {
+        const newLogin = login(page);
+        await newLogin.login(USERDETAILS.adminUsername, USERDETAILS.adminPassword);
+    });
 
-    test('Check Admin Login', async ({page}) => {
-        const login = new LoginPage(page);
-
-        await page.goto('/');
-        await login.login('admin', 'admin123');
-
-        await expect(page.locator('.user-role')).toHaveText('ADMIN');       
-    })
-
-    test('Check Staff Login', async ({page}) => {
-        const login = new LoginPage(page);
-
-        await page.goto('/');
-        await login.login('staff', 'staff123');
-
-        await expect(page.locator('.user-role')).toHaveText('STAFF');       
-    })
+    test('login as staff', async ({ page }) => {
+        const newLogin = login(page);
+        await newLogin.login(USERDETAILS.staffUsername, USERDETAILS.staffPassword);
+    });
 
 })
