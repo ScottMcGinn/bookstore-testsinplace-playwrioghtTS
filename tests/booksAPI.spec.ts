@@ -5,6 +5,20 @@ test.describe.configure({ mode: 'serial' });
 test.describe('Books API tests @APITest', () => {
     let createdBookId: number;
 
+    test.afterEach(async ({ page }) => {
+        // Clean up test books after each test
+        const allBooks = await (await booksApi(page).getAllBooks()).json();
+        const testBooks = allBooks.filter((book: any) => 
+            book.isbn === '978-0-TEST-000-0' || 
+            book.isbn === '978-0-UPD-000-0' || 
+            book.isbn === '978-0-DEL-000-0'
+        );
+        
+        for (const book of testBooks) {
+            await booksApi(page).deleteBook(book.id);
+        }
+    });
+
     test('Get all books', async ({ page }) => {
         const response = await booksApi(page).getAllBooks();
         
